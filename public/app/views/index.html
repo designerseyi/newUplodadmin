@@ -14,7 +14,7 @@
     <script src="assetszz/js/angular1.6.js"></script>
     <script src="assetszz/js/angular-route.js"></script>
     <script src="assetszz/js/angular-animate.js"></script>
-     <script src="assets/scripts/script.js"></script>
+    <!--  <script src="assets/scripts/script.js"></script> -->
 
     <!-- Angular Config/Routes -->
     <script src="app/app.js"></script>
@@ -57,7 +57,7 @@
                 <div ng-show="!main.isLoggedIn" >
 
                   <div  id="wrapper">
-                        <div class="vertical-align-wrap">
+                        <div class="vertical-align-wrap" style="margin-top: 100px;">
                             <div class="vertical-align-middle">
                                 <div class="auth-box ">
                                     <div class="left">
@@ -78,13 +78,13 @@
                                         <form class="form-auth-small" name="sentMessage" id="contactForm" ng-submit="main.doLogin(loginData);" novalidate>
                                                 <div class="form-group">
                                                     <label for="signin-email" class="control-label sr-only">Email</label>
-                                                    <input type="email" class="form-control" id="signin-email" value="Admin@citykruise.com" placeholder="Email"  ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" name="email" ng-model="main.loginData.email" autocomplete="off">
+                                                    <input type="email" class="form-control" id="signin-email" value="Admin@citykruise.com" placeholder="Email"   ng-model="main.loginData.email" autocomplete="off">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="signin-password" class="control-label sr-only">Password</label>
                                                     <input type="password" class="form-control" id="signin-password" 
-                                                    ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled"  name="password" placeholder="password *" ng-model="main.loginData.password">
+                                                     name="password" placeholder="password *" ng-model="main.loginData.password">
                                                 </div>
                                                 <div class="form-group clearfix">
                                                     <label class="fancy-checkbox element-left">
@@ -157,7 +157,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/profile"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                                
-                                <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                                <li><a href="#" ng-click="main.logout();""><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                             </ul>
                         </li>
                         
@@ -183,6 +183,30 @@
             </div>
         </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button ng-hide="main.hideButton" type="button" ng-click="main.endSession();" class="close" data-dismiss="modal">&times;</button>
+                    <!-- Modal Header -->
+                    <h4 class="modal-title">{{ main.modalHeader }}</h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <p>{{ main.modalBody }}</p>
+                    <div ng-show="main.hideButton" class="dizzy-gillespie"></div>
+                </div>
+                <div class="modal-footer">
+                    <!-- Modal 'Yes' & 'No' Buttons -->
+                    <button type="button" ng-hide="main.hideButton" ng-click="main.renewSession();" class="btn btn-primary" data-dismiss="modal">Yes</button>
+                    <button type="button" ng-hide="main.hideButton" ng-click="main.endSession();" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
    
 
