@@ -1,36 +1,82 @@
 {
-  "name": "meantutorial",
-  "version": "1.0.0",
-  "description": "mean stack application",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [
-    "MEAN",
-    "stack"
+  "_args": [
+    [
+      "connect-multiparty@2.1.1",
+      "C:\\Users\\designerseyi\\Downloads\\Compressed\\Admin and working trymaster\\trymaster\\newUplodadmin"
+    ]
   ],
-  "author": "David Acosta",
-  "license": "ISC",
+  "_from": "connect-multiparty@2.1.1",
+  "_id": "connect-multiparty@2.1.1",
+  "_inBundle": false,
+  "_integrity": "sha1-bughL9siBNPxNfjBLjr6SV0YH9c=",
+  "_location": "/connect-multiparty",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "connect-multiparty@2.1.1",
+    "name": "connect-multiparty",
+    "escapedName": "connect-multiparty",
+    "rawSpec": "2.1.1",
+    "saveSpec": null,
+    "fetchSpec": "2.1.1"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/connect-multiparty/-/connect-multiparty-2.1.1.tgz",
+  "_spec": "2.1.1",
+  "_where": "C:\\Users\\designerseyi\\Downloads\\Compressed\\Admin and working trymaster\\trymaster\\newUplodadmin",
+  "author": {
+    "name": "Andrew Kelley",
+    "email": "superjoe30@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/expressjs/connect-multiparty/issues"
+  },
+  "contributors": [
+    {
+      "name": "Douglas Christopher Wilson",
+      "email": "doug@somethingdoug.com"
+    }
+  ],
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.15.2",
-    "cloudinary": "^1.11.0",
-    "connect-multiparty": "^2.1.1",
-    "express": "^4.14.0",
-    "express-session": "^1.14.2",
-    "jsonwebtoken": "^7.1.9",
-    "mongoose": "^4.6.0",
-    "mongoose-title-case": "0.0.4",
-    "mongoose-validator": "^1.2.5",
-    "morgan": "^1.7.0",
-    "multer": "^1.3.1",
-    "nodemailer": "^2.7.0",
-    "nodemailer-sendgrid-transport": "^0.2.0",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1",
-    "passport-google-oauth": "^1.0.0",
-    "passport-twitter": "^1.0.4"
-  }
+    "multiparty": "~4.1.4",
+    "on-finished": "~2.3.0",
+    "qs": "~6.5.2",
+    "type-is": "~1.6.16"
+  },
+  "description": "multipart parsing middleware for connect using multiparty",
+  "devDependencies": {
+    "connect": "3.6.6",
+    "eslint": "2.13.1",
+    "mocha": "3.5.3",
+    "nyc": "10.3.2",
+    "safe-buffer": "5.1.2",
+    "should": "13.2.1",
+    "supertest": "2.0.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "HISTORY.md",
+    "LICENSE",
+    "README.md",
+    "index.js"
+  ],
+  "homepage": "https://github.com/expressjs/connect-multiparty#readme",
+  "license": "MIT",
+  "name": "connect-multiparty",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/expressjs/connect-multiparty.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha --reporter spec",
+    "test-ci": "nyc --reporter=text npm test",
+    "test-cov": "nyc --reporter=html --reporter=text npm test"
+  },
+  "version": "2.1.1"
 }
