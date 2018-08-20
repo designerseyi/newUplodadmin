@@ -1,0 +1,61 @@
+
+		<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="col-md-3"></div>
+
+							<div class="col-md-6">
+
+
+								<div class="col-mx-auto show-hide-message" ng-show="main.successMsg || main.errorMsg">
+						          
+						          <div ng-class="alert">
+						            
+						            <p>{{ main.successMsg || main.errorMsg }}</p>
+						          </div>
+						        </div>
+
+
+								
+								<h3 style="text-align: center;"> Driver Identification Documents</h3>
+
+									<form 
+
+								class="needs-validation"  enctype="multipart/form-data"  
+								 action="/api/setdocument/user_id" method="post" id="contactForm"
+								>
+								
+								<div class="panel-body">
+									<p>Drivers License</p>
+									<input type="file"  name="driversLicense" class="form-control"  
+									required>
+									<br>
+
+									<p>National Id card</p>
+									<input type="file" name="nationalId" class="form-control"  
+										
+									required>
+									<br>
+
+									<input hidden type="text" value= {{main.getId}} name="id"
+								
+									id="id"
+									
+									>
+
+									<button type="submit" class="btn btn-primary">Submit</button>
+
+								</div>
+
+
+								<div class="col-md-3"></div>
+							</div>
+							
+						</div>
+
+
+				</div>
+		</div>

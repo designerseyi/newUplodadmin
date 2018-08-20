@@ -1,0 +1,201 @@
+
+		<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<div class="row" >
+
+							<div class="col-md-3"></div>
+
+							<div class="col-md-6">
+								
+								<h3 style="text-align: center;"> Add user</h3>
+
+								 <div class="col-mx-auto show-hide-message" ng-show="register.successMsg || register.errorMsg" >
+						          
+						          <div ng-class="alert">
+						            
+						            <p>{{ register.successMsg || register.errorMsg }}</p>
+						          </div>
+						        </div>
+
+
+								<div class="panel-body">
+
+									 <form class="needs-validation" name="regForm" ng-submit="register.regUser(regData, regForm.$valid);" id="contactForm" novalidate>
+
+
+									 	<div>
+
+
+									 		<div ng-class="{ 'has-success':(regForm.firstName.$valid && !regForm.firstName.$pristine), 'has-error':(!regForm.firstName.$valid && !regForm.firstName.$pristine) || (!regForm.firstName.$valid && regForm.$submitted) }">
+
+         							      <label for="lastName">First name</label>
+									 		<input ype="text" class="form-control" id="firstName"
+                							ng-disabled="register.disabled"   name="firstName" placeholder="First Name *" ng-model="register.regData.firstName" ng-pattern="/^[a-zA-Z]+$/" ng-minlength="3" ng-maxlength="20" required>
+
+
+                							 <p class="text-danger" ng-show="(!regForm.firstName.$pristine && regForm.firstName.$error.required) || (regForm.$submitted && regForm.firstName.$error.required)">This field is required</p>
+                                    <ul ng-show="(!regForm.firstName.$pristine && regForm.firstName.$error.pattern) || (!regForm.firstName.$pristine && regForm.firstName.$error.minlength) || (!regForm.firstName.$pristine && regForm.firstName.$error.maxlength)" class="text-danger">
+                                        <li>Must have a space in between first and last firstName</li>
+                                        <li>Must not contain any special characters</li>
+                                        <li>Must not contain any numbers</li>
+                                        <li>Must be at least 3 characters but no more than 20</li>
+                                    </ul>
+
+
+											<br>
+									 	</div>
+									 	<!-- first name -->
+									
+									<div>
+										
+										 <div ng-class="{ 'has-success':(regForm.lastName.$valid && !regForm.lastName.$pristine), 'has-error':(!regForm.lastName.$valid && !regForm.lastName.$pristine) || (!regForm.lastName.$valid && regForm.$submitted) }">
+
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName"  ng-disabled="register.disabled" name="lastName" placeholder="Last Name *" ng-model="register.regData.lastName" ng-pattern="/^[a-zA-Z]+$/" ng-minlength="3" ng-maxlength="20" required>
+
+											<br>
+                <p class="text-danger" ng-show="(!regForm.lastName.$pristine && regForm.lastName.$error.required) || (regForm.$submitted && regForm.lastName.$error.required)">This field is required</p>
+                                    <ul ng-show="(!regForm.lastName.$pristine && regForm.lastName.$error.pattern) || (!regForm.lastName.$pristine && regForm.lastName.$error.minlength) || (!regForm.lastName.$pristine && regForm.lastName.$error.maxlength)" class="text-danger">
+                                        <li>Must have a space in between first and last lastName</li>
+                                        <li>Must not contain any special characters</li>
+                                        <li>Must not contain any numbers</li>
+                                        <li>Must be at least 3 characters but no more than 20</li>
+                                    </ul>
+
+
+									</div>
+									<!-- lastname -->
+
+
+
+									<div>
+										
+
+										 <div ng-class="{ 'has-success':(regForm.email.$valid && !regForm.email.$pristine && !register.emailInvalid), 'has-error':(!regForm.email.$valid && !regForm.email.$pristine) || (!regForm.email.$valid && regForm.$submitted) || register.emailInvalid }">
+
+              <label for="email">Email <span class="text-muted"></span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com"ng-disabled="register.disabled" name="email" ng-model="register.regData.email" ng-minlength="3" ng-maxlength="40" ng-pattern="/^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/" ng-blur="register.checkEmail(regData);" required>
+
+               <p class="text-danger" ng-show="(!regForm.email.$pristine && regForm.email.$error.required) || (regForm.$submitted && regForm.email.$error.required)">This field is required</p>
+                                    <span ng-show="register.checkingEmail && regForm.email.$valid" class="glyphicon glyphicon-repeat"></span>
+                                    <p class="text-success" ng-show="register.emailMsg && !regForm.email.$error.required && regForm.email.$valid">{{ register.emailMsg }}</p>
+                                    <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) || (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="text-danger">
+                                        <li>Must contain "@"</li>
+                                        <li>Must not contain any special characters</li>
+                                        <li>Must be at least 3 characters but no more than 25</li>
+                                    </ul>
+	
+									</div>
+
+									<!-- email -->
+
+
+									<div>
+										
+
+										<div ng-class="{ 'has-success':(regForm.username.$valid && !regForm.username.$pristine && !register.usernameInvalid), 'has-error':(!regForm.username.$valid && !regForm.username.$pristine) || (!regForm.username.$valid && regForm.$submitted) || register.usernameInvalid }">
+
+              <label for="address">Phone number</label>
+              <input type="number" class="form-control" id="phone" placeholder="(080)999-9999" ng-disabled="register.disabled"   name="username" ng-model="register.regData.username" ng-minlength="3" ng-maxlength="11" ng-pattern="/^[0-9]{11}$/" ng-blur="register.checkUsername(regData);" required>
+              <br>
+              <p class="text-danger" ng-show="(!regForm.username.$pristine && regForm.username.$error.required) || (regForm.$submitted && regForm.username.$error.required)">This field is required</p>
+                                    <span ng-show="register.checkingUsername && regForm.username.$valid" class="glyphicon glyphicon-repeat"></span>
+                                    <p class="text-success" ng-show="register.usernameMsg && !regForm.username.$error.required && regForm.username.$valid">{{ register.usernameMsg }}</p>
+                                    <ul ng-show="(!regForm.username.$pristine && regForm.username.$error.pattern) || (!regForm.username.$pristine && regForm.username.$error.minlength) || (!regForm.username.$pristine && regForm.username.$error.maxlength)" class="text-danger">
+
+                                        <li>Must be at least 11 digits</li>
+                                    </ul>
+
+
+
+									</div>
+
+									<!-- phone number / username -->
+
+
+									<div>
+						
+
+									          <label for="Select">Select User Role</label>
+									<select class="form-control" 
+									 name="permission" ng-model="register.regData.permission" ng-disabled="register.disabled"  >
+
+										 <option ng-repeat="item in register.items" value="{{item.value}}">{{item.display}}</option>
+										
+									</select>
+
+									<br>
+
+									<div class="animate-switch-container"
+									    ng-switch on="register.regData.permission">
+									      <div class="animate-switch" ng-switch-when="settings|options" ng-switch-when-separator="|">Settings Div</div>
+									     
+
+									      <div class="animate-switch" ng-switch-when="Driver">
+
+
+									      	<button type="submit" class=" btn btn-primary btn-lg btn-block "   > Add Driver</a>
+
+									    
+									       </div>
+
+									       <div class="animate-switch" ng-switch-when="Franchise">
+
+
+									      	<button type="submit" class=" btn btn-primary btn-lg btn-block "   > Add Franchise</a>
+
+									    
+									       </div>
+
+
+									      <div class="animate-switch" ng-switch-when="admin">
+
+									      		
+									      	<button type="submit" class=" btn btn-primary btn-lg btn-block "    > Add Admin</a>
+
+
+									      </div>
+
+									      <div class="animate-switch" ng-switch-when="Sub-admin">
+
+									      		
+									      	<button type="submit" class=" btn btn-primary btn-lg btn-block "    > Add Sub-admin</a>
+
+
+									      </div>
+									  </div>
+
+									<br>
+
+
+					</div>					
+									
+
+
+
+									<!-- password -->
+									
+
+									<!-- Confirm password -->
+
+
+<!-- <input type="text" class="form-control" id="permission" placeholder="Password" ng-disabled="register.disabled"  name="permission"  ng-model="register.regData.permission" >
+<br>
+ -->
+
+					
+								</div>
+					</div>
+
+					<div class="col-md-3"></div>
+							</div>
+							
+						</div>
+
+
+				</div>
+		</div>
+
+<!-- 	</body>

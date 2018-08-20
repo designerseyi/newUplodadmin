@@ -1,0 +1,95 @@
+
+			<!-- MAIN -->
+			<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<h3 class="page-title" style="display: inline">Users </h3>
+
+						<a href="/adduser" class="btn btn-primary pull-right">Add User</a>
+						<div class="row">
+							<div class="col-md-12">
+								<!-- BASIC TABLE -->
+								<div class="panel">
+									
+									<div class="panel-body">
+										<table class="table">
+											<thead>
+												<tr>
+													<th> Name</th>
+													<th>Last Activity</th>
+													<th>Phone</th>
+													<th>Email</th>
+													
+													<th> Edit </th>
+													<th> Delete </th>
+
+												</tr>
+											</thead>
+							<tbody>
+								<tr  ng-repeat="person in management.users ">
+
+
+									<td>
+										<div class="row">
+										<div class="col-md-2">
+										<img src="assets/img/man3.png" class="img-circle">
+										</div>
+											<div class="col-md-3">
+												<strong>{{ person.name }}</strong>
+
+												</div>
+
+											</div>
+
+											</td>
+											<td><i class="fas fa-clock"></i>
+
+											<small>Online now!</small></td>
+											<td>{{ person.username }}</td>
+
+											<td>{{ person.email }}</td>
+
+											<td>
+			                <!-- Edit Button -->
+			                <a href="/edit/{{ person._id }}">
+			                    <button type="button" ng-show="management.editAccess" class="btn btn-primary">Edit</button>
+			                </a>
+			            </td>
+
+			            <td>
+			                <!-- Delete Button -->
+			                <button type="button" ng-click="management.deleteUser(person.username);" ng-show="management.deleteAccess" class="btn btn-danger">Delete</button>
+			            </td>
+
+
+
+											</tr>
+
+
+													
+													
+													
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- END BASIC TABLE -->
+							</div>
+							
+						</div>
+						
+								<!-- END CONDENSED TABLE -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END MAIN CONTENT -->
+			</div>
+			<!-- END MAIN -->
+
+
+
+
+			

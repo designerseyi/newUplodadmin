@@ -1,0 +1,61 @@
+
+	<div id="wrapper">
+		<div class="vertical-align-wrap">
+			<div class="vertical-align-middle">
+				<div class="auth-box ">
+					<div class="left">
+						<div class="content">
+							<div class="header">
+								<div class="logo text-center">
+									<h3> City Kruiz</h3>
+								</div>
+								<p class="lead">Login to your account</p>
+							</div>
+
+							
+        <!-- Custom Messages -->
+        <div class="row show-hide-message" ng-show="main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg">
+            <div ng-class="alert">{{ main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg }}</div>&nbsp
+            <a ng-show="main.expired || facebook.expired || google.expired || twitter.expired" href="/resend">
+                <!-- Button to Resend an Activation Link -->
+                <button type="button" class="btn btn-success">Resend Activation Link</button>
+            </a>
+        </div>
+						<form class="form-auth-small" name="sentMessage" id="contactForm" ng-submit="main.doLogin(loginData);" novalidate>
+								<div class="form-group">
+									<label for="signin-email" class="control-label sr-only">Email</label>
+									<input type="email" class="form-control" id="signin-email" value="Admin@citykruise.com" placeholder="Email"  ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" name="email" ng-model="main.loginData.email" autocomplete="off">
+								</div>
+
+								<div class="form-group">
+									<label for="signin-password" class="control-label sr-only">Password</label>
+									<input type="password" class="form-control" id="signin-password" 
+									ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled"  name="password" placeholder="password *" ng-model="main.loginData.password">
+								</div>
+								<div class="form-group clearfix">
+									<label class="fancy-checkbox element-left">
+										<input type="checkbox">
+										<span>Remember me</span>
+									</label>
+								</div>
+							<button  class="btn btn-primary btn-lg btn-block"
+								type="submit" ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled">LOGIN</button>
+								
+								<div class="bottom">
+									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="right">
+						<div class="overlay"></div>
+						<div class="content text">
+							
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END WRAPPER -->

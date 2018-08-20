@@ -1,0 +1,84 @@
+
+		<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content" > 
+
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="col-md-3"></div>
+
+							<div class="col-md-6">
+
+
+								<div class="col-mx-auto show-hide-message" ng-show="main.successMsg || main.errorMsg">
+						          
+						          <div ng-class="alert">
+						            
+						            <p>{{ main.successMsg || main.errorMsg }}</p>
+						          </div>
+						        </div>
+
+
+								<form 
+
+								class="needs-validation"  enctype="multipart/form-data"  
+								action="/api/setprofile/user_id" method="post"
+								>
+								
+								<h3 style="text-align: center;"> Driver Identification Documents</h3>
+
+								<div class="panel-body">
+									<!-- <div ng-class="{ 'has-success':(regForm.displayname.$valid && !regForm.displayname.$pristine && !main.displaynameInvalid), 'has-error':(!regForm.displayname.$valid && !regForm.displayname.$pristine) || (!regForm.displayname.$valid && regForm.$submitted) || main.displaynameInvalid }"> -->
+
+									<p>Display Name</p>
+									<!-- <input type="text" class="form-control" ng-disabled="main.disabled"   name="displayname" ng-model="main.regData.displayname" ng-minlength="3" ng-maxlength="15"  ng-blur="main.checkDisplayname(regData);"  required> -->
+									<input type="text" class="form-control" name="displayname">
+
+									<!-- <p class="text-danger" ng-show="(!regForm.displayname.$pristine && regForm.displayname.$error.required) || (regForm.$submitted && regForm.displayname.$error.required)">This field is required</p>
+                                    <span ng-show="main.checkingDisplayname && regForm.displayname.$valid" class="glyphicon glyphicon-repeat"></span>
+                                    <p class="text-success" ng-show="main.displaynameMsg && !regForm.displayname.$error.required && regForm.displayname.$valid">{{ main.displaynameMsg }}</p>
+                                    <ul ng-show="(!regForm.displayname.$pristine && regForm.displayname.$error.minlength) || (!regForm.displayname.$pristine && regForm.displayname.$error.maxlength)" class="text-danger">
+
+                                        <li>Must be at least 3 to 15 characters</li>
+                                    </ul> -->
+
+
+
+									</div>
+
+
+
+									<br>
+									<!-- end display name -->
+
+
+
+									
+									<p>Display Image</p>
+
+									<!-- <input type="file" class="form-control" name="image" ng-model="main.regData.image"   required> -->
+
+
+									<input type="file" class="form-control" name="image" id="image"   required>
+
+										
+									<br>
+
+
+									<input hidden type="text" Value= {{main.getId}} name="id">
+								
+
+									<button type="submit" class="btn btn-primary">Submit</button>
+
+								</div>
+
+
+								<div class="col-md-3"></div>
+							</div>
+							
+						</div>
+
+</form>
+				</div>
+		</div>

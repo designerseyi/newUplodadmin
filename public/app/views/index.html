@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Main Angular Files -->
+    <script src="assetszz/js/angular1.6.js"></script>
+    <script src="assetszz/js/angular-route.js"></script>
+    <script src="assetszz/js/angular-animate.js"></script>
+     <script src="assets/scripts/script.js"></script>
+
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!-- Angular Controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/emailCtrl.js"></script>
+    <script src="app/controllers/managementCtrl.js"></script>
+
+
+    <!-- Angular Services -->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+
+   
+    
+
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+        <link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
+        <!-- MAIN CSS -->
+        <link rel="stylesheet" href="assets/css/main.css">
+
+
+        <link rel="stylesheet" type="text/css" href="assetszz/css/animate.css">
+
+    <title> City Kruise</title>
+
+</head>
+
+<body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+   
+
+<!-- login -->
+                <div ng-show="!main.isLoggedIn" >
+
+                  <div  id="wrapper">
+                        <div class="vertical-align-wrap">
+                            <div class="vertical-align-middle">
+                                <div class="auth-box ">
+                                    <div class="left">
+                                        <div class="content">
+                                            <div class="header">
+                                                <div class="logo text-center">
+                                                    <h3> City Kruiz</h3>
+                                                </div>
+                                                <p class="lead">Login to your account</p>
+                                            </div>
+
+                                            
+                        <!-- Custom Messages -->
+                        <div class="row show-hide-message" ng-show="main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg">
+                            <div ng-class="alert">{{ main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg }}</div>&nbsp
+                            
+                        </div>
+                                        <form class="form-auth-small" name="sentMessage" id="contactForm" ng-submit="main.doLogin(loginData);" novalidate>
+                                                <div class="form-group">
+                                                    <label for="signin-email" class="control-label sr-only">Email</label>
+                                                    <input type="email" class="form-control" id="signin-email" value="Admin@citykruise.com" placeholder="Email"  ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" name="email" ng-model="main.loginData.email" autocomplete="off">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="signin-password" class="control-label sr-only">Password</label>
+                                                    <input type="password" class="form-control" id="signin-password" 
+                                                    ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled"  name="password" placeholder="password *" ng-model="main.loginData.password">
+                                                </div>
+                                                <div class="form-group clearfix">
+                                                    <label class="fancy-checkbox element-left">
+                                                        <input type="checkbox">
+                                                        <span>Remember me</span>
+                                                    </label>
+                                                </div>
+                                            <button  class="btn btn-primary btn-lg btn-block"
+                                                type="submit">LOGIN</button>
+                                                
+                                                <div class="bottom">
+                                                    <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <div class="overlay"></div>
+                                        <div class="content text">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END WRAPPER -->
+
+                  
+                </div>
+
+
+   
+
+
+    <div id="wrapper" ng-show="main.isLoggedIn">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="brand">
+                <a href="index.html"><Big>City Kruiz</Big></a>
+            </div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                </div>
+        
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                <i class="lnr lnr-alarm"></i>
+                                <span class="badge bg-danger">1</span>
+                            </a>
+                            <ul class="dropdown-menu notifications">
+                                
+                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
+                                <li><a href="#" class="more">See all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Basic Use</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/man.png" class="img-circle" alt="Avatar"> <span>Admin</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/profile"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+                               
+                                <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+                        <li><a href="/user" class=""><i class="lnr lnr-user"></i> <span>User</span></a></li>
+                        <li><a href="/genstat" class=""><i class="fa fa-line-chart"></i> <span>Statistics</span></a></li>
+                        <li><a href="#" class=""><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                        
+                        
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+   
+
+   <div ng-view></div>
+
+
+<div class="clearfix"></div>
+        <footer>
+            <div class="container-fluid">
+                <p class="copyright">&copy; 2018 </p>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+   <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>
+
+   
+</body>
+
+</html>

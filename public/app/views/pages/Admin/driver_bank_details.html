@@ -1,0 +1,65 @@
+
+		<div class="main">
+				<!-- MAIN CONTENT -->
+				<div class="main-content">
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="col-md-3"></div>
+
+							<div class="col-md-6">
+								
+								<h3 style="text-align: center;"> Driver Bank Details</h3>
+
+								<div class="col-mx-auto show-hide-message" ng-show="main.successMsg || main.errorMsg">
+						          
+						          <div ng-class="alert">
+						            
+						            <p>{{ main.successMsg || main.errorMsg }}</p>
+						          </div>
+						        </div>
+
+
+
+								<form name="regForm" ng-submit="main.regBank(regData);" id="contactForm">
+									
+
+								<div class="panel-body">
+									<p>Account Name</p>
+									<input type="text" class="form-control" placeholder="Account Name" name="accountName" ng-model="main.regData.accountName" required>
+									<br>
+
+									<p>Account Number</p>
+									<input type="text" class="form-control" placeholder="Account Number" name="accountNumber" ng-model="main.regData.accountNumber"  required>
+									<br>
+
+									<p>Bank Name</p>
+									<input type="text" class="form-control" placeholder="Bank name"  name="bankName" ng-model="main.regData.bankName"  required>
+									<br>
+
+									<p>Bvn</p>
+									<input type="number" class="form-control" placeholder="Bvn" 
+									name="bvn" ng-model="main.regData.bvn" 
+									required>
+									<br>
+
+									<input hidden type="text" value= {{main.getId}} name="id"
+								
+									ng-model="main.regData.id"">
+
+									<button type="submit" class="btn btn-primary">Next</button>
+
+								</div>
+								</form>
+
+							</div>
+
+
+								<div class="col-md-3"></div>
+							</div>
+							
+						</div>
+
+
+				</div>
+		</div>
