@@ -19,7 +19,7 @@ app.use('/api', appRoutes); // Assign name to end points (e.g., '/api/management
 //
 // <---------- REPLACE WITH YOUR MONGOOSE CONFIGURATION ---------->
 //
-mongoose.connect('mongodb://Designerseyi:Working123$@ds121982.mlab.com:21982/citykruise', { useMongoClient: true }, function(err) {
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/Citykruise',  function(err) {
     if (err) {
         console.log('Not connected to the database: ' + err); // Log to console if unable to connect to database
     } else {
